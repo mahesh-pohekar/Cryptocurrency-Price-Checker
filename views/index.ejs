@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRICE CHECKER</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="container">
+        <form action="/CryptPrice" method="post">
+            <select name="cryptoName" id="cryptoName">
+                <option value="BTC-USD">BTC-USD</option>
+                <option value="TRX-USD">TRX-USD</option>
+                <option value="THETA-USD">THETA-USD</option>
+                <option value="GALA-USD">GALA-USD</option>
+                <option value="ETH-BTC">ETH-BTC</option>
+                <option value="BAT-USD">BAT-USD</option>
+                <option value="EUR-USD">EUR-USD</option>
+                <option value="LINK-USD">LINK-USD</option>
+                <option value="ADA-USD">ADA-USD</option>
+                <option value="MATIC-USD">MATIC-USD</option>
+                <option value="DOGE-USD">DOGE-USD</option>
+                <option value="SOL-USD">SOL-USD</option>
+            </select>
+            <button type="submit" id="btn">Get Price</button>
+        </form>
+        <% if(locals.content){ %>
+            <ul>
+                <li><h3><%=content.symbol %></h3></li>
+                <li><b>24h High:</b> <%=content.price_24h %> <%=content.symbol.split('-')[1]  %></li>
+                <li><b>24h Volume:</b> <%=content.volume_24h %> <%=content.symbol.split('-')[0] %></li>
+                <li><b>Last Trade Price:</b> <%=content.last_trade_price %> <%=content.symbol.split('-')[1]%></li>
+            </ul>
+        <% } else{ %>
+            <p>Select Cryptocurrency pair to check price👆</p>
+        <% } %>
+    
+    </div>
+    
+</body>
+</html>
